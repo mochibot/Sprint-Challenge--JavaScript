@@ -6,7 +6,9 @@
   * The last parameter accepts a callback 
   * In the body of the function return the callback with the two parameters that you created
 */
-
+function consume(arg1, arg2, cb) {
+  cb(arg1, arg2);
+}
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
@@ -14,12 +16,26 @@
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
 
+function add(num1, num2) {
+  console.log(num1 + num2);
+}
+
+function multiply(num1, num2) {
+  console.log(num1 * num2);
+}
+
+function greeting(firstName, lastName) {
+  console.log(`Hello ${firstName} ${lastName}, nice to meet you!`);
+}
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// consume(2,2,add); // 4
-// consume(10,16,multiply); // 160
-// consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
+// consume(2,2,add); 
+// consume(10,16,multiply); 
+// consume("Mary","Poppins", greeting); 
 
+consume(2, 2, add); // 4
+consume(10, 16, multiply); // 160
+consume('Mary', 'Poppins', greeting); // Hello Mary Poppins, nice to meet you!
 
 // ==== Closures ==== 
 
@@ -27,6 +43,9 @@
 
 // Explanation: 
 
+/* 
+  nestedFunction() is the inner function, which has access to variables of outside (enclosing) functions, due to closures in JavaScript. The inner functions preserve the scope chain of the enclosing functions at the time the enclosing function was executed. 
+*/
 
 const external = "I'm outside the function";
 
